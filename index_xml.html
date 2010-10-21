@@ -1,13 +1,13 @@
 <html>
 <head>
-	<script type="text/javascript" src="/js/raphael/raphael-min.js" ></script> 
-	<script type="text/javascript" src="/js/yui/build/yui/yui.js"></script> 
-	<script type="text/javascript" src="/js/jsphylosvg-min.js"></script> 
+	<script type="text/javascript" src="js/raphael/raphael-min.js" ></script> 
+	<script type="text/javascript" src="js/yui/build/yui/yui.js"></script> 				
+	<script type="text/javascript" src="js/jsphylosvg-min.js"></script>
 	
 	<script type="text/javascript">
 	window.onload = function(){
 		YUI().use('oop', 'json-stringify', 'io-base', 'event', 'event-delegate', function(Y){
-			var uri = "/tree.xml";
+			var uri = "tree.xml";
 			function complete(id, o, args) {
 				var data = o.responseXML; // Response data.
 				var dataObject = {
