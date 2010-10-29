@@ -406,7 +406,7 @@ Smits.PhyloCanvas.NewickParse.prototype = {
 			}
 			if(clade.annotation[0] && clade.annotation[0].uri && clade.annotation[0].uri[0] && clade.annotation[0].uri[0].Text){
 				node.uri = clade.annotation[0].uri[0].Text;
-			}			
+			}
 		}
 		if(clade.chart){
 			if(clade.chart[0]){
@@ -473,10 +473,12 @@ Smits.PhyloCanvas.NewickParse.prototype = {
 		};
 		
 		
+		j = jsonString;
 		/* CONSTRUCTOR */	
 		if(jsonString.phylogeny && jsonString.phylogeny[0] && jsonString.phylogeny[0].clade){
 			root = recursiveParse(jsonString.phylogeny[0].clade[0]);
 		}
+		
 		
 		if(jsonString.phylogeny && jsonString.phylogeny[0] && jsonString.phylogeny[0].render && jsonString.phylogeny[0].render[0]){
 			var render = jsonString.phylogeny[0].render[0];
@@ -854,20 +856,7 @@ Smits.PhyloCanvas.Render.SVG.prototype = {
 			}
 			
 			if(node.name){ // draw bootstrap values
-				var attr = {};
-				if(node.uri) { attr.href = node.uri };
-				if(node.description) {attr.title = node.description };
-				
-				svg.draw(
-					new Smits.PhyloCanvas.Render.Text(
-						x2 + 5, y2,
-						node.name,
-						{
-							attr: attr
-						}
-					)
-				);				
-				//svg.draw(new Smits.PhyloCanvas.Render.Text(x2 + 5, y2, node.name));
+				svg.draw(new Smits.PhyloCanvas.Render.Text(x2 + 5, y2, node.name));
 			}
 			
 			if(node.children && node.children.length){
